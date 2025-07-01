@@ -1,0 +1,14 @@
+{
+  "hosting": {
+    "public": ".",
+    "rewrites": [
+      {
+        "source": "/functions/**",
+        "function": "kirimNotifikasi" 
+      }
+    ]
+  },
+  "functions": {
+    "source": "functions" 
+  }
+}

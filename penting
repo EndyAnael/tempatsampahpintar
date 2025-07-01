@@ -1,0 +1,5 @@
+npx @tailwindcss/cli -i ./input.css -o ./output.css --watch
+
+npm install cors
+node sendNotification.js
+npm run dev
