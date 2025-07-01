@@ -1,10 +1,9 @@
 // send_notifikasi.js
 import express from 'express';
-import admin from 'firebase-admin';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import { getDatabase } from 'firebase-admin/database';
 import fs from 'fs';
+import admin from 'firebase-admin'; // Tidak perlu import firebase jika menggunakan CDN
 
 const aplikasi = express();
 const port = 3000;
@@ -16,13 +15,12 @@ aplikasi.use(bodyParser.json());
 const kredensialService = JSON.parse(fs.readFileSync('./project-unkriswina-firebase-adminsdk-fbsvc-c63d4c29dc.json', 'utf8'));
 console.log(kredensialService);
 
-
 admin.initializeApp({
   credential: admin.credential.cert(kredensialService),
   databaseURL: "https://project-unkriswina-default-rtdb.firebaseio.com/",
 });
 
-const database = getDatabase();
+const database = admin.database();
 const jedaNotifikasi = 30 * 1000;
 let waktuTerakhirKirim = 0; // Menyimpan waktu notifikasi terakhir per TPS
 
@@ -60,8 +58,9 @@ setInterval(async () => {
         notification: {
           title,
           body,
-        }, token
-      }
+        },
+        token
+      };
 
       try {
         const respons = await admin.messaging().send(pesan);

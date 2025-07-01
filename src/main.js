@@ -1,7 +1,3 @@
-import { db, messaging } from "./firebase_config";
-import { ref, onValue, set } from "firebase/database";
-import { getToken, onMessage } from "firebase/messaging";
-
 // Ambil token perangkat untuk notifikasi
 getToken(messaging, {
   vapidKey: "BFUPra79dc4bAr2Q61FxX2-iSRcRM4Fd5vP7rir1XavxLnsjaZUVudHYI2vBHIA8GN_qfikjyOy5im3Eyq2gMe8"
