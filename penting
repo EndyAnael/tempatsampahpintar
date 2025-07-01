@@ -3,3 +3,12 @@ npx @tailwindcss/cli -i ./input.css -o ./output.css --watch
 npm install cors
 node sendNotification.js
 npm run dev
+
+Menambahkan perubahan berikutnya:
+Setiap kali kamu melakukan perubahan di project, kamu cukup melakukan langkah-langkah berikut:
+
+Menambahkan perubahan dengan git add .
+
+Membuat commit dengan git commit -m "Pesan commit"
+
+Mempush perubahan ke GitHub dengan git push
